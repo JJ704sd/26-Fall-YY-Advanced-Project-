@@ -1,0 +1,11 @@
+numpy>=2.0,<3
+scipy>=1.14,<2
+scikit-image==0.25.2
+scikit-learn==1.7.2
+joblib>=1.4,<2
+cloudpickle>=3,<4
+matplotlib>=3.8,<4
+Pillow>=10
+torch>=2.4,<3
+muellerkit==0.1.2
+pytest>=8,<10

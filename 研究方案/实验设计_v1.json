@@ -1,0 +1,129 @@
+{
+  "version": "1.0",
+  "date": "2026-10-30",
+  "status": "methodology_only_not_executed",
+  "data_root": "D:\\26秋YY高项\\类器官",
+  "roi_ids": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+  ],
+  "source_id_in_acquisition_logs": "BR-029",
+  "independent_patient_count": null,
+  "independent_organoid_count": null,
+  "input_shape_from_variable_headers": [
+    2008,
+    2408
+  ],
+  "pixel_size_um": null,
+  "mueller_normalization": "requires_confirmation",
+  "parameter_formulas_on_normalized_elements": {
+    "PL": "sqrt(m21**2 + m31**2)",
+    "DL": "sqrt(m12**2 + m13**2)",
+    "qL": "sqrt(m42**2 + m43**2)",
+    "rL": "sqrt(m24**2 + m34**2)"
+  },
+  "mask": "human_reviewed_tissue_mask_excluding_background_and_lumens",
+  "slic": {
+    "n_segments_primary": 1000,
+    "n_segments_sensitivity": [
+      500,
+      1500
+    ],
+    "compactness_primary": 1.0,
+    "compactness_sensitivity": [
+      0.1,
+      10.0
+    ],
+    "convert2lab": false,
+    "channel_axis": -1,
+    "enforce_connectivity": true
+  },
+  "node_features": {
+    "channels": [
+      "PL",
+      "DL",
+      "qL",
+      "rL"
+    ],
+    "statistics": [
+      "mean",
+      "std"
+    ],
+    "dimension": 8
+  },
+  "graphs": [
+    "spatial_adjacency_unweighted",
+    "spatial_adjacency_feature_weighted"
+  ],
+  "cross_roi_edges": false,
+  "shared_encoder_across_rois": true,
+  "clustering": {
+    "primary_k": 4,
+    "candidate_k": [
+      3,
+      4,
+      5,
+      6
+    ],
+    "n_init": 20,
+    "centers_shared_across_rois_per_method": true
+  },
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "methods": {
+    "M0": "standardized_node_features_then_kmeans",
+    "M1": {
+      "name": "sgc_style_propagation_then_kmeans",
+      "primary_hops": 2,
+      "candidate_hops": [
+        1,
+        2,
+        3
+      ]
+    },
+    "M2": {
+      "name": "gae_then_kmeans",
+      "encoder_dims": [
+        8,
+        32,
+        16
+      ],
+      "epochs": 150,
+      "learning_rate": 0.001,
+      "reconstruction_target": "binary_spatial_adjacency",
+      "negative_sampling": "within_each_roi_graph_only",
+      "sparse_propagation": true
+    }
+  },
+  "optional_later": [
+    "MMPD_depolarization_and_retardance",
+    "DGI",
+    "VGAE"
+  ],
+  "evaluation": [
+    "silhouette_in_common_base_space",
+    "native_embedding_silhouette",
+    "pairwise_seed_ARI",
+    "pixel_area_fraction",
+    "shannon_composition_entropy",
+    "connected_component_distribution",
+    "boundary_length_and_class_contacts"
+  ],
+  "inference_scope": "exploratory_analysis_on_current_7_rois_not_unseen_patient_validation",
+  "required_before_practice": [
+    "normalization_confirmation",
+    "sample_relationships",
+    "tissue_mask_scope",
+    "pixel_scale_and_reference_images"
+  ]
+}

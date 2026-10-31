@@ -1,0 +1,119 @@
+乳腺癌类器官偏振图像分析 操作指南
+更新日期：2026-10-30
+
+一、当前已经完成什么
+
+项目目录：D:\26秋YY高项
+输入数据：类器官\1 至 类器官\7 下的 FinalMM.mat、m11.mat 和采集信息。
+研究方案：研究方案\高项研究路径_v1.pdf；原始实验设计：研究方案\实验设计_v1.json。
+实现代码：analysis\polar_pipeline.py。
+
+当前代码支持 PL、DL、qL、rL 计算，自动组织掩膜草稿或外部掩膜、SLIC、区域特征、空间邻接图，以及以下四组对照：
+  baseline：区域偏振特征 + K-Means；
+  propagation：SGC式特征传播 + K-Means；
+  gae：图自编码器 + K-Means。
+  dgi：按ROI扰动节点特征并做图对比学习，再进行K-Means。
+空间指标和结果图会一并保存。代码还支持可选总二向色性D，以及不同空间边权的实验。退偏和相位延迟已有矩阵分解诊断，但因物理可实现性尚待核对，尚未作为有效特征加入主流程；VGAE尚未实现。不能把qL、rL直接写成相位延迟。
+
+二、环境和第一次检查
+
+本机已配置项目环境 analysis\.venv。使用 PowerShell：
+
+  Set-Location -LiteralPath 'D:\26秋YY高项'
+  & '.\analysis\.venv\Scripts\python.exe' -m pytest '.\analysis\tests' -q
+  & '.\analysis\.venv\Scripts\python.exe' '.\analysis\polar_pipeline.py' --help
+
+若在另一台机器重新配置，先安装 Python 3.11，再在项目根目录执行：
+
+  python -m venv --system-site-packages '.\analysis\.venv'
+  & '.\analysis\.venv\Scripts\python.exe' -m pip install -r '.\analysis\requirements.txt'
+
+本机已有支持 CUDA 的 PyTorch；重新安装时应按设备选择合适的 PyTorch 版本。CPU 也可以运行当前小规模流程。每次运行的 environment.json 会记录实际版本。
+
+三、查看已经完成的试跑
+
+ROI 1 试跑：analysis\runs\roi1_pilot_20261030_1\report.html
+试跑设置：最长边768像素、约500个超像素、K=4、两个随机种子、GAE训练60轮。它是功能验证，不是最终参数或模型优劣结论。
+
+7个ROI的快速试跑：analysis\runs\roi1_7_exploratory_20261030_1\report.html
+该次使用约500个超像素、K=4、2个种子、GAE训练30轮，输出42个ROI/方法/种子组合。ROI之间没有空间边，每种方法在7个ROI共同拟合聚类。通过代码一致性检查，但掩膜和参数还需研究层面的核对。
+目前ROI 6的低纹理区域在自动掩膜中出现较多孔洞，需要核对是否漏选组织。该次两个种子之间，7个ROI的GAE ARI均值约0.327，基础聚类约0.974；由于只运行两个种子及较少训练轮数，这只是提示稳定性需要进一步检查。
+
+打开 report.html，先检查 overview 图的三项：
+  1. 左上：光强图与实际组织位置是否一致。
+  2. 中上：白色自动掩膜是否覆盖组织、排除背景和腔隙。当前掩膜只用于试跑，并未经过人工审核。
+  3. 右上：SLIC边界是否跨过明显的结构边界，是否出现过粗划分。
+其余彩色图是不同方法的聚类；类别数字在各方法之间不自动对应，也不代表病理名称。
+
+四、运行和修改参数
+
+重新运行 ROI 1：
+
+  & '.\analysis\.venv\Scripts\python.exe' '.\analysis\polar_pipeline.py' --config '.\analysis\configs\pilot.json'
+
+在相同的小规模设置下试跑全部7个ROI，先使用2个种子和30轮GAE：
+
+  & '.\analysis\.venv\Scripts\python.exe' '.\analysis\polar_pipeline.py' --config '.\analysis\configs\pilot.json' --rois 1 2 3 4 5 6 7 --seeds 0 1 --epochs 30 --device cpu
+
+正式参数草案使用约1000个超像素、K=4、5个种子和150轮；经过掩膜检查后可执行：
+
+  & '.\analysis\.venv\Scripts\python.exe' '.\analysis\polar_pipeline.py' --config '.\analysis\configs\full.json' --device cpu
+
+每次在 analysis\runs 下创建新的带时间目录，不覆盖已有结果。可用 --device auto 选择可用GPU；如设备不支持所需运算，用 --device cpu。研究配置中的数值是起始设置，应按研究方案检查500/1500个超像素、K=3/5/6及传播次数等敏感性，不把一次结果当作最优设置。
+
+五、使用人工核对过的掩膜
+
+自动掩膜使用光强纹理生成，可能漏掉低纹理组织或包含腔隙。需要解释面积和结构之前，应对每张ROI核对并提供组织掩膜。掩膜使用与原始数值阵元完全一致的2008×2408像素坐标，单通道PNG，背景为0，组织为1或255。文件命名 roi_1.png 至 roi_7.png，放在例如 analysis\masks 中。不要直接把带标题和色条的 overview 截图当作掩膜。
+
+可使用 analysis\mask_review\ppt_20261031 中的原尺寸参考图和自动掩膜草稿；草稿仍需核对。若要从其他已完成的运行重新导出，可使用：
+
+  & '.\analysis\.venv\Scripts\python.exe' '.\analysis\experiments\export_mask_review.py' --run 'analysis\runs\运行目录名' --name 新草稿目录名
+
+在图像编辑软件中保持原始尺寸和坐标，将核对后的二值掩膜另存为 roi_1.png 至 roi_7.png；参考灰度图只用于显示，不能替代原始数值。
+
+只有ROI 1掩膜时，可指定ROI 1运行：
+
+  & '.\analysis\.venv\Scripts\python.exe' '.\analysis\polar_pipeline.py' --config '.\analysis\configs\pilot.json' --mask-dir 'analysis\masks'
+
+使用 full.json 和 --mask-dir 时，目录中需要7张同尺寸、同坐标的掩膜。代码会检查尺寸和二值范围；是否经过人工审核仍需在实验记录中说明。
+
+六、怎样阅读输出
+
+  config.json：此次实际参数，包括ROI、归一化模式、超像素数、K、种子和设备。
+  roi_N_qc.json：文件与阵元质量、FinalM11范围、参数分位数和掩膜状态。
+  roi_N_prepared.npz：缩放后的4参数图、光强、掩膜、超像素、节点特征与边。
+  roi_N_overview.png、roi_N_parameters.png：输入、掩膜、超像素与参数检查图。
+  roi_N_方法_seed数字.png / labels.npy：区域分布图与分析网格上的类别数组；背景为-1。可用plot_seeds只保存部分种子的图片，数组和指标仍按全部种子保存。
+  nodes.csv、normalized_adjacency.npz：区域特征及归一化图。
+  metrics.csv：共同原始特征空间及各方法表示空间的轮廓系数、熵、空间指标。
+  area_fractions.csv：按分析网格内像素数量计算的类别面积占比。
+  stability_ari.csv：同一个ROI、同一种方法不同种子的ARI；至少两个种子才会生成。
+  roi_N_方法_seed数字_contacts.csv：类别邻接像素对矩阵，非对角元素表示对应两类共享的网格边数，矩阵对称；对角线为同类相邻对的两倍。
+  gae_loss_seed数字.csv、gae_weights_seed数字.pt：GAE训练损失与权重。
+  summary.json、report.html：运行范围、限制、用时与可视化汇总。
+
+运行目录的用途和正式结果位置见 analysis\runs\运行记录索引.txt。
+
+面积、边界和连通域使用缩放后的分析网格。不同 max_side 的边界值不要直接比较；已知像素尺度并验证上采样/缩放方案后，才报告物理尺寸。Shannon熵描述类别组成，不单独反映空间排列。ARI仅反映两次聚类的一致程度，不是病理准确率。
+
+七、解释前需要落实的事项
+
+7个ROI的FinalM11均数值接近1，其中99.9%的像素与1的偏差不超过约0.00014；当前 pilot 配置使用 as_stored，并记录数值检查。数值接近1支持该假设，但仍需数据提供方确认标定和归一化过程。若确认阵元是未归一化的原始矩阵，复制配置并将 normalization 改为 divide_by_m11，核对数值后重新运行；不能默默更换。
+
+7份采集记录均含 BR-029，患者、切片和类器官的对应关系仍待确认。若没有配准H&E或专家标注，结果应称为偏振特征类别；不要直接命名为细胞核、纤维、坏死，也不要报告诊断准确率。相同来源的7个ROI不等同于7名独立患者。
+
+八、建议下一步
+
+先检查全部ROI的自动掩膜和数据质量；补充或修正组织掩膜后，使用 full.json 运行并保存配置、日志和图表。随后在相同数据与掩膜下比较三种方法，补做种子、超像素尺度、K和图边权的敏感性分析；结合参考图像或老师意见解释结构。相关 AI 工作提示词见 analysis\研究推进提示词.txt。
+
+九、2026-10-31新增的PPT对照实验
+
+已完成四参数等权、四参数加D等权、四参数相似度加权三组7ROI实验；每组包括 baseline、propagation、gae、dgi 四种方法，使用5个随机种子，GAE/DGI各训练100轮。三组使用相同掩膜、超像素和基础参数图。
+
+查看工程说明和方法区别：analysis\README.txt
+查看实验结果：analysis\reports\ppt_comparison_20261031_v6\实验结果说明.txt
+查看统计表和图：同目录 comparison_summary.csv、comparison_per_roi.csv、method_comparison.png。
+查看完整矩阵抽样诊断：analysis\runs\mmpd_audit_7roi_20261031_v2\report.html。
+查看局部平均对照：analysis\runs\mueller_neighborhood_7roi_20261031\report.html；与原始数据比较应同时检查矩阵改变量和可能产生的边界混合。
+
+退偏和延迟的严格物理性前提尚未确认，诊断图中的未经筛选分解值只用于发现问题。ROI 6的自动掩膜存在低纹理孔洞；现有7个ROI都来自含BR-029的记录，独立患者/类器官数量尚不明确。结果仅供本批样本探索，不代表病理准确率或临床效果。

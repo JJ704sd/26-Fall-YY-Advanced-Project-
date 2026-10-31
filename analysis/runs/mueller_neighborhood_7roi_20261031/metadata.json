@@ -1,0 +1,35 @@
+{
+  "rois": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+  ],
+  "stride_native_pixels": 16,
+  "windows": [
+    1,
+    3,
+    7
+  ],
+  "mask_source": "analysis/runs/ppt_reference_4channels_20261031",
+  "mask_status": "auto_draft_unreviewed",
+  "selection": "Identical sampled mask locations for all windows; exclude image margins of 3 native pixels",
+  "averaging": "Unweighted square neighborhood on each Mueller element; may mix tissue, lumen and background",
+  "relative_change": "Frobenius norm of (averaged matrix - native matrix) / Frobenius norm of native matrix",
+  "physicality_tolerances": {
+    "atol": 1e-12,
+    "rtol": 1e-10
+  },
+  "assumed_stokes_order": [
+    "I",
+    "Q",
+    "U",
+    "V"
+  ],
+  "muellerkit_version": "0.1.2",
+  "code_sha256": "fd928191408f653db634163cdaa9de7d2189bd185098b6b1329ef79d543c2239",
+  "seconds": 14.5628528000002
+}

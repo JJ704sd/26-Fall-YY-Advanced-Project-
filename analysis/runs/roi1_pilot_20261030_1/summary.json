@@ -1,0 +1,27 @@
+{
+  "status": "completed_exploratory_run",
+  "rois": [
+    1
+  ],
+  "methods": [
+    "baseline",
+    "propagation",
+    "gae"
+  ],
+  "seeds": [
+    0,
+    1
+  ],
+  "seconds": 10.341028599999845,
+  "gae_device": "cpu",
+  "node_count": 499,
+  "mask_reviewed": false,
+  "normalization_evidence": "Numerical M11 near unity; calibration provenance not independently verified",
+  "spatial_units": "downsampled_analysis_grid_pixels",
+  "limitations": [
+    "Automatic masks are drafts, including tissue/lumen ambiguity",
+    "No pathology ground truth or accuracy claims",
+    "BR-029 ROI source relationship not independently confirmed",
+    "Downsampling changes fine structure; full-resolution validation remains pending"
+  ]
+}

@@ -1,0 +1,138 @@
+{
+  "source_run": "D:\\26秋YY高项\\analysis\\runs\\ppt_reference_4channels_20261031",
+  "entries": [
+    {
+      "roi": 1,
+      "shape": [
+        2008,
+        2408
+      ],
+      "source": "D:\\26秋YY高项\\类器官\\1\\m11.mat",
+      "reference": "roi_1_reference.png",
+      "draft": "roi_1_draft.png",
+      "display_quantiles": [
+        0.01,
+        0.99
+      ],
+      "display_range": [
+        0.3982866416018416,
+        1.1146173127870391
+      ],
+      "draft_status": "upsampled_auto_mask_not_reviewed"
+    },
+    {
+      "roi": 2,
+      "shape": [
+        2008,
+        2408
+      ],
+      "source": "D:\\26秋YY高项\\类器官\\2\\m11.mat",
+      "reference": "roi_2_reference.png",
+      "draft": "roi_2_draft.png",
+      "display_quantiles": [
+        0.01,
+        0.99
+      ],
+      "display_range": [
+        0.4773679430991418,
+        1.116586888748154
+      ],
+      "draft_status": "upsampled_auto_mask_not_reviewed"
+    },
+    {
+      "roi": 3,
+      "shape": [
+        2008,
+        2408
+      ],
+      "source": "D:\\26秋YY高项\\类器官\\3\\m11.mat",
+      "reference": "roi_3_reference.png",
+      "draft": "roi_3_draft.png",
+      "display_quantiles": [
+        0.01,
+        0.99
+      ],
+      "display_range": [
+        0.3560857275928333,
+        1.1646950032650107
+      ],
+      "draft_status": "upsampled_auto_mask_not_reviewed"
+    },
+    {
+      "roi": 4,
+      "shape": [
+        2008,
+        2408
+      ],
+      "source": "D:\\26秋YY高项\\类器官\\4\\m11.mat",
+      "reference": "roi_4_reference.png",
+      "draft": "roi_4_draft.png",
+      "display_quantiles": [
+        0.01,
+        0.99
+      ],
+      "display_range": [
+        0.4957836992765244,
+        1.092212031343284
+      ],
+      "draft_status": "upsampled_auto_mask_not_reviewed"
+    },
+    {
+      "roi": 5,
+      "shape": [
+        2008,
+        2408
+      ],
+      "source": "D:\\26秋YY高项\\类器官\\5\\m11.mat",
+      "reference": "roi_5_reference.png",
+      "draft": "roi_5_draft.png",
+      "display_quantiles": [
+        0.01,
+        0.99
+      ],
+      "display_range": [
+        0.46045475937530744,
+        1.1006423771274045
+      ],
+      "draft_status": "upsampled_auto_mask_not_reviewed"
+    },
+    {
+      "roi": 6,
+      "shape": [
+        2008,
+        2408
+      ],
+      "source": "D:\\26秋YY高项\\类器官\\6\\m11.mat",
+      "reference": "roi_6_reference.png",
+      "draft": "roi_6_draft.png",
+      "display_quantiles": [
+        0.01,
+        0.99
+      ],
+      "display_range": [
+        0.4346117181963518,
+        1.1212883159742346
+      ],
+      "draft_status": "upsampled_auto_mask_not_reviewed"
+    },
+    {
+      "roi": 7,
+      "shape": [
+        2008,
+        2408
+      ],
+      "source": "D:\\26秋YY高项\\类器官\\7\\m11.mat",
+      "reference": "roi_7_reference.png",
+      "draft": "roi_7_draft.png",
+      "display_quantiles": [
+        0.01,
+        0.99
+      ],
+      "display_range": [
+        0.5906678410285697,
+        1.0329096753696103
+      ],
+      "draft_status": "upsampled_auto_mask_not_reviewed"
+    }
+  ]
+}

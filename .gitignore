@@ -1,0 +1,8 @@
+# Original experimental acquisitions stay local; see the SHA-256 manifest.
+/类器官/
+
+# Local Python environments and transient caches.
+/analysis/.venv/
+__pycache__/
+.pytest_cache/
+*.py[cod]

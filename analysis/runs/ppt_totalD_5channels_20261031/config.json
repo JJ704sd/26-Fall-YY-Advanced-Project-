@@ -1,0 +1,40 @@
+{
+  "data_root": "类器官",
+  "rois": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+  ],
+  "normalization": "as_stored",
+  "max_side": 768,
+  "n_segments": 500,
+  "compactness": 1.0,
+  "weighted": false,
+  "include_total_diattenuation": true,
+  "hops": 2,
+  "k": 4,
+  "epochs": 100,
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "plot_seeds": [
+    0
+  ],
+  "device": "cpu",
+  "mask_dir": null,
+  "methods": [
+    "baseline",
+    "propagation",
+    "gae",
+    "dgi"
+  ],
+  "run_name": "ppt_totalD_5channels_20261031"
+}

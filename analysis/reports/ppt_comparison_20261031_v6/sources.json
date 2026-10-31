@@ -1,0 +1,31 @@
+{
+  "runs": [
+    "ppt_reference_4channels_20261031",
+    "ppt_totalD_5channels_20261031",
+    "ppt_similarity_edges_20261031"
+  ],
+  "audit": "mmpd_audit_7roi_20261031_v2",
+  "neighborhood": "mueller_neighborhood_7roi_20261031",
+  "config_controls": [
+    "rois",
+    "normalization",
+    "max_side",
+    "n_segments",
+    "compactness",
+    "hops",
+    "k",
+    "epochs",
+    "seeds",
+    "device",
+    "mask_dir",
+    "methods"
+  ],
+  "experiments": [
+    "core4",
+    "core4_plus_D",
+    "core4_weighted"
+  ],
+  "ppt_path": "D:\\26秋YY高项\\相关资料\\2026高项偏振介绍_副本(1).pptx",
+  "ppt_sha256": "fcc537387580d8d745c3237ae124aca655fee726af9a3319a11a1ae6f9c1d4cf",
+  "report_code_sha256": "6346a0e9ae1524b22631c7403416b88e1a31165857671fa7d82cfafa252f876e"
+}

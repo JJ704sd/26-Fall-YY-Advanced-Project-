@@ -1,0 +1,26 @@
+{
+  "data_root": "类器官",
+  "rois": [
+    1
+  ],
+  "normalization": "as_stored",
+  "max_side": 768,
+  "n_segments": 500,
+  "compactness": 1.0,
+  "weighted": false,
+  "hops": 2,
+  "k": 4,
+  "epochs": 60,
+  "seeds": [
+    0,
+    1
+  ],
+  "device": "cpu",
+  "mask_dir": null,
+  "methods": [
+    "baseline",
+    "propagation",
+    "gae"
+  ],
+  "run_name": "roi1_pilot_20261030_1"
+}

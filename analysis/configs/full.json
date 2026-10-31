@@ -1,0 +1,16 @@
+{
+  "data_root": "类器官",
+  "rois": [1, 2, 3, 4, 5, 6, 7],
+  "normalization": "as_stored",
+  "max_side": 1200,
+  "n_segments": 1000,
+  "compactness": 1.0,
+  "weighted": false,
+  "hops": 2,
+  "k": 4,
+  "epochs": 150,
+  "seeds": [0, 1, 2, 3, 4],
+  "device": "auto",
+  "mask_dir": null,
+  "methods": ["baseline", "propagation", "gae"]
+}

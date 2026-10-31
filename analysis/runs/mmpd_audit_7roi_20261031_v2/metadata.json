@@ -1,0 +1,31 @@
+{
+  "rois": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+  ],
+  "stride_native_pixels": 16,
+  "mask_source": "analysis/runs/roi1_7_exploratory_20261030_1",
+  "mask_status": "auto_draft_unreviewed",
+  "muellerkit_version": "0.1.2",
+  "assumed_stokes_order": [
+    "I",
+    "Q",
+    "U",
+    "V"
+  ],
+  "physicality_tolerances": {
+    "atol": 1e-12,
+    "rtol": 1e-10
+  },
+  "decomposition_order": "M_delta @ M_R @ M_D",
+  "matrix_source": "FinalM11..FinalM44 as stored; muellerkit accounts for M11 in the decomposition",
+  "orthogonality_diagnostic_threshold": 0.001,
+  "warning": "Strict physicality is a mathematical criterion under the stated convention. Measurement noise, calibration, and Stokes convention require independent investigation. Unfiltered MMPD values are diagnostic only.",
+  "code_sha256": "900f3e7134d56e7c5e282a33a03fcd3ddfe12c3e456f69f775a75686182a0e4a",
+  "seconds": 13.854620499999783
+}

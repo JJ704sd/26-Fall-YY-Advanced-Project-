@@ -1,0 +1,35 @@
+{
+  "status": "completed_exploratory_run",
+  "rois": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+  ],
+  "methods": [
+    "baseline",
+    "propagation",
+    "gae"
+  ],
+  "seeds": [
+    0,
+    1
+  ],
+  "seconds": 42.25572649999958,
+  "gae_device": "cpu",
+  "node_count": 3465,
+  "mask_statuses": [
+    "auto_draft_unreviewed"
+  ],
+  "normalization_evidence": "Stored M11 passed the near-unity numerical check; calibration provenance remains unverified",
+  "spatial_units": "downsampled_analysis_grid_pixels",
+  "limitations": [
+    "Mask provenance and tissue/lumen interpretation must be reviewed",
+    "No pathology ground truth or accuracy claims",
+    "BR-029 ROI source relationship not independently confirmed",
+    "Downsampling changes fine structure; full-resolution validation remains pending"
+  ]
+}

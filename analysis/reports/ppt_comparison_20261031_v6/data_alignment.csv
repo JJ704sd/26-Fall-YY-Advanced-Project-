@@ -1,0 +1,15 @@
+﻿roi,comparison,same_mask,same_superpixels,same_core4_maps
+1,core4_plus_D,True,True,True
+1,core4_weighted,True,True,True
+2,core4_plus_D,True,True,True
+2,core4_weighted,True,True,True
+3,core4_plus_D,True,True,True
+3,core4_weighted,True,True,True
+4,core4_plus_D,True,True,True
+4,core4_weighted,True,True,True
+5,core4_plus_D,True,True,True
+5,core4_weighted,True,True,True
+6,core4_plus_D,True,True,True
+6,core4_weighted,True,True,True
+7,core4_plus_D,True,True,True
+7,core4_weighted,True,True,True

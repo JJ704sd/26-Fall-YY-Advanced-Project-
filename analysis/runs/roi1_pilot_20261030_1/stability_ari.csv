@@ -1,0 +1,4 @@
+﻿roi,method,seed_a,seed_b,ARI
+1,baseline,0,1,0.9938689293254993
+1,propagation,0,1,1.0
+1,gae,0,1,0.7209369995159401
