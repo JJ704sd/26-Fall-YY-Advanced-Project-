@@ -1,0 +1,42 @@
+[
+  {
+    "thread_id": "01a18bbf-e353-7d90-b3fe-b75a86fd0f20",
+    "name": "梳理高项研究重点与前提",
+    "turn_count": 7,
+    "read_via": "read_thread wrapper -> App Server thread/read(includeTurns=true)",
+    "response_sha256": "30b35292e34329ddf54c30cfea9558ffb17d308ddbe79c04cb201060b2c22afe",
+    "read_date": "2026-10-31"
+  },
+  {
+    "thread_id": "01a18bc0-dfae-71d2-9b88-2ac7b5da6577",
+    "name": "说明偏振参数 PL、DL、qL、rL 的计算",
+    "turn_count": 2,
+    "read_via": "read_thread wrapper -> App Server thread/read(includeTurns=true)",
+    "response_sha256": "2bca048ab6625aafa2b6aedb56e81c2063d2c7ebe5285909a53a6069cd365676",
+    "read_date": "2026-10-31"
+  },
+  {
+    "thread_id": "01a18bd8-4116-7891-be77-e10ef6d22927",
+    "name": "研读论文并提炼学习要点",
+    "turn_count": 1,
+    "read_via": "read_thread wrapper -> App Server thread/read(includeTurns=true)",
+    "response_sha256": "c6490379bbec718136df05ecf4fb34dc0e89da599e6cd0225daac9f27d582296",
+    "read_date": "2026-10-31"
+  },
+  {
+    "thread_id": "01a18c05-6e02-7e51-94d1-93b58429caca",
+    "name": "解释图片中的专业词汇",
+    "turn_count": 1,
+    "read_via": "read_thread wrapper -> App Server thread/read(includeTurns=true)",
+    "response_sha256": "1137092ba67f6d433766668d56f0e5fe79bb8087db494c9cf403f545e663e9e2",
+    "read_date": "2026-10-31"
+  },
+  {
+    "thread_id": "01a190c5-8ba7-77a3-988a-5703819bbcfc",
+    "name": "同步高项项目到远端仓库",
+    "turn_count": 3,
+    "read_via": "read_thread wrapper -> App Server thread/read(includeTurns=true)",
+    "response_sha256": "d9ebba26b178d31716b7362e3d03982bba0ca24ceeda6bf16f3d9d695443e873",
+    "read_date": "2026-10-31"
+  }
+]

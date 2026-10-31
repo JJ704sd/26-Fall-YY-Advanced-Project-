@@ -6,3 +6,6 @@
 __pycache__/
 .pytest_cache/
 *.py[cod]
+
+# Local skill-validation artifacts, including diagnostic logs and chat exports.
+/tmp/skill-validation/

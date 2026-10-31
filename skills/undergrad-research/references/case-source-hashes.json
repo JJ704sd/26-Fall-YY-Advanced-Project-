@@ -1,0 +1,113 @@
+{
+  "snapshot_date": "2026-10-31",
+  "source_project_root": "D:\\26秋YY高项",
+  "source_commit": "ea3eca04cac6d8f8e9bf8b689e61c12397e1c08e",
+  "scope": "Source versions at skill creation; not a research quality certification",
+  "files": [
+    {
+      "path": "README.md",
+      "bytes": 2035,
+      "sha256": "99883c76d1d5581c071ce7d18c15090c8f0912a41647bde52686309e0ce0fb38"
+    },
+    {
+      "path": "analysis/README.txt",
+      "bytes": 8136,
+      "sha256": "85baf271b41890fb71ca3ff1d92184871e8fb3ad2031c36c1279dd44006ef4d4"
+    },
+    {
+      "path": "analysis/操作指南.txt",
+      "bytes": 9534,
+      "sha256": "e450a228d14fb98a53f479147e87dccca44b21fde8469777dcb17e5a056cb5a3"
+    },
+    {
+      "path": "analysis/研究推进提示词.txt",
+      "bytes": 5319,
+      "sha256": "bdfac719c43ec89f818a51fa2e477b1411de67ae94b9ba61a05e3231483f1b1a"
+    },
+    {
+      "path": "研究方案/实验设计_v1.json",
+      "bytes": 2869,
+      "sha256": "d986e94eb285383ddb23bb87cd9c18015938c19adfe57b532dd1817ad88868ff"
+    },
+    {
+      "path": "analysis/polar_pipeline.py",
+      "bytes": 24550,
+      "sha256": "241b03eb5c91b8a322c227ade0609def1d7893a40a8beff807529d67503ae76f"
+    },
+    {
+      "path": "analysis/graph_models.py",
+      "bytes": 3354,
+      "sha256": "995820f167fa43dc8cb040286054b58c8d094dc8ec8ba278aa9da1a09337b388"
+    },
+    {
+      "path": "analysis/tests/test_pipeline.py",
+      "bytes": 4662,
+      "sha256": "ce05d829c7ee5532f60e72060d78371639962367cbabf97fc9bf4008ca27899c"
+    },
+    {
+      "path": "analysis/runs/运行记录索引.txt",
+      "bytes": 1890,
+      "sha256": "5efe7e74dc3f4c2be5cdead9973c9f667e342773d01dff38c4f2d54f836eddd1"
+    },
+    {
+      "path": "analysis/configs/ppt_reference_4channels.json",
+      "bytes": 403,
+      "sha256": "a79bb7a3cd2a564173683536b2c96dda96b1b9ce64346774dcb7199cb89840d3"
+    },
+    {
+      "path": "analysis/configs/ppt_total_diattenuation.json",
+      "bytes": 402,
+      "sha256": "bc24962f307ccef6f2d0768920298dd5363326c2df820a5e138d81f756eb6211"
+    },
+    {
+      "path": "analysis/configs/ppt_similarity_edges.json",
+      "bytes": 402,
+      "sha256": "bbcc0d8d282fa87bfb52527137d003edada8adc7e6574729fc0501d1402adf38"
+    },
+    {
+      "path": "analysis/reports/ppt_comparison_20261031_v6/实验结果说明.txt",
+      "bytes": 3359,
+      "sha256": "888b5a2d35932afd6a16c3f3f04493a0bdfb8039bcf6d0d395f692b05b4ac2c8"
+    },
+    {
+      "path": "analysis/reports/ppt_comparison_20261031_v6/comparison_summary.csv",
+      "bytes": 2068,
+      "sha256": "6c3628be8b80810f64e4799f8f9cfdc86d33e3c51bde94f25524dd7449aaa1bd"
+    },
+    {
+      "path": "analysis/reports/ppt_comparison_20261031_v6/data_alignment.csv",
+      "bytes": 510,
+      "sha256": "4ccb777dc156f294740594d687c36d4594b17e9469481bcdf593dafe8d2c3778"
+    },
+    {
+      "path": "analysis/reports/ppt_comparison_20261031_v6/sources.json",
+      "bytes": 808,
+      "sha256": "761f8018ade0e89035fd7b1eb05acfdb8e0d4aa6fad8412a80f43d10e4d1d6ba"
+    },
+    {
+      "path": "analysis/runs/mmpd_audit_7roi_20261031_v2/metadata.json",
+      "bytes": 945,
+      "sha256": "1d2d9793cb8740aad3d2b8b0a302ca4cd4481fa461eed19b70e56c0acd3f00aa"
+    },
+    {
+      "path": "analysis/runs/mmpd_audit_7roi_20261031_v2/summary.csv",
+      "bytes": 2494,
+      "sha256": "cd5e8c02bfe749a886372e894268cee8fe7a12a1c5f9153d31179a3d850ac17a"
+    },
+    {
+      "path": "相关资料/2026高项偏振介绍_副本(1).pptx",
+      "bytes": 18657361,
+      "sha256": "fcc537387580d8d745c3237ae124aca655fee726af9a3319a11a1ae6f9c1d4cf"
+    },
+    {
+      "path": "相关资料/5698548 (1)(1).pdf",
+      "bytes": 998853,
+      "sha256": "f7f82cea62394fbaaa00d59afde762729581467058542520d004defbff030972"
+    },
+    {
+      "path": "相关资料/基于全偏振显微成像的数字病理技术_中国激光 (4)(1).pdf",
+      "bytes": 12098848,
+      "sha256": "f4291e0fe8a11e8cf284127fad95bfac6028cac468c3724dac0944d04c3c70f9"
+    }
+  ]
+}
