@@ -1,0 +1,29 @@
+{
+  "date": "2026-10-31",
+  "skill_name": "undergrad-research",
+  "source_files": 11,
+  "installed_files": 11,
+  "installed_bytes_match": true,
+  "zip_bytes_match": true,
+  "zip_sha256": "dd6ca8a67f3cfe73db27f6ac0724c99a46e702adc559e9c8312fba1c1387af18",
+  "source_manifest": {
+    "SKILL.md": "b50b0e8211c2c4541c7bbd2df0a0adb6116dbb077a244f319c0c5ea307034a35",
+    "agents/openai.yaml": "b7f2ac316674dc84f9284045f0458bd46660cf685984db844573c3113363b9b9",
+    "assets/experiment-record.md": "8ada2b5fb3eaceb00b113483504258b7bf8a0cb7a92408ec19768826643dae86",
+    "assets/paper-card.md": "70432c659fddb143f35dc88894bfc0935bec71a7dad17a5b0a11dbcee3d45968",
+    "assets/progress-update.md": "c6be0ec657bb8bc798438c6e02cbe99ddd785d0d9105ddc82c61755807876eb5",
+    "assets/project-brief.md": "0c16b691fa1443442526ecc183f6bed47c507b153fbcc43dde4d8b441d3efcb9",
+    "references/case-source-hashes.json": "3a3d5e54b64fd757ee0a7991b2a7f337a97775d2fcfd6b94b2d8b18466e20dab",
+    "references/case-sources.md": "87daaffe11a2188fa0199325123c6287e2b24f241768dfe03c60b1157177f342",
+    "references/polarization-organoid.md": "846d860135a5df37ccaae53259024bac8ffe047d661ee0996ed0b33cfd4dca2e",
+    "references/research-workflow.md": "5d63c43bd1d8d1276614dbba42a8b2b0e7f49878cc8279027bd168e398457007",
+    "references/thread-read-coverage.json": "20e8b1339c952b3144b0e93b12bc81a75af612acd189872683bdc7455e6b099b"
+  },
+  "runtime_discovery": {
+    "method": "skills/list",
+    "forceReload": true,
+    "scope": "user",
+    "enabled": true,
+    "errors": []
+  }
+}
